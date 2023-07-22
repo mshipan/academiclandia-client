@@ -6,6 +6,7 @@ import MyCollege from "../Pages/MyCollege";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import MainLayout from "../Layouts/MainLayout";
+import SearchResult from "../components/SearchResult";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/search-result",
+        element: <SearchResult></SearchResult>,
       },
     ],
   },

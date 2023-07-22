@@ -1,11 +1,31 @@
-import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import { FaXmark } from "react-icons/fa6";
-import { useState } from "react";
+import { BsSearch } from "react-icons/bs";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubOpen, setIsSubOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const user = true;
+  const navigate = useNavigate(); // Use navigate hook to handle navigation
+
+  const handleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
+  const handleSubmitSearch = (event) => {
+    event.preventDefault();
+    const searchTerm = event.target.search.value;
+    // Replace "search-result" with the actual path for the search result page
+    const searchResultUrl = `/search-result?query=${encodeURIComponent(
+      searchTerm
+    )}`;
+    navigate(searchResultUrl); // Use navigate to navigate to the search result page
+    setIsSearchOpen(false); // Close the search input
+  };
+
   const navItems = (
     <>
       <li>
@@ -48,8 +68,26 @@ const Navbar = () => {
           My College
         </NavLink>
       </li>
+      <li>
+        <BsSearch className="cursor-pointer" onClick={handleSearch} />
+      </li>
+      <li>
+        <form onSubmit={handleSubmitSearch}>
+          <input
+            type="search"
+            name="search"
+            placeholder="Search..."
+            className={`bg-white absolute flex flex-col items-start p-2 gap-3 duration-500 border border-sky-500 outline-sky-500 ${
+              isSearchOpen
+                ? "md:top-[3.72rem] top-[8.5rem] md:right-72 right-24"
+                : "md:-top-64 md:right-72 -top-48 right-24"
+            }`}
+          />
+        </form>
+      </li>
     </>
   );
+
   const handleToggle = () => {
     setIsOpen((prevState) => {
       setIsSubOpen(false);
@@ -62,7 +100,7 @@ const Navbar = () => {
       <div className="container mx-auto py-4 flex flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-start md:items-center justify-between">
         <div>
           <Link to="/">
-            {/* <img src={logo} alt="Website Logo" className="w-36" /> */}
+            <h1 className="text-white text-lg font-semibold">Academiclandia</h1>
           </Link>
         </div>
         {/* large screen Nav */}
