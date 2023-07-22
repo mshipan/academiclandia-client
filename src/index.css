@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.navClass {
+    @apply font-semibold hover:text-[#ff4838] duration-300
+}
