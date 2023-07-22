@@ -5,3 +5,7 @@
 .navClass {
     @apply font-semibold hover:text-[#ff4838] duration-300
 }
+
+.topSectionBackground {
+    background-image: url("https://i.ibb.co/r41DDDn/zhanhui-li-1iux-Ws-IZ6ko-unsplash.jpg");
+}

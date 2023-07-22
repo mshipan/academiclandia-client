@@ -1,30 +1,13 @@
 import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import { FaXmark } from "react-icons/fa6";
-import { BsSearch } from "react-icons/bs";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubOpen, setIsSubOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   const user = true;
-  const navigate = useNavigate(); // Use navigate hook to handle navigation
-
-  const handleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-  };
-
-  const handleSubmitSearch = (event) => {
-    event.preventDefault();
-    const searchTerm = event.target.search.value;
-    // Replace "search-result" with the actual path for the search result page
-    const searchResultUrl = `/search-result?query=${encodeURIComponent(
-      searchTerm
-    )}`;
-    navigate(searchResultUrl); // Use navigate to navigate to the search result page
-    setIsSearchOpen(false); // Close the search input
-  };
 
   const navItems = (
     <>
@@ -67,23 +50,6 @@ const Navbar = () => {
         >
           My College
         </NavLink>
-      </li>
-      <li>
-        <BsSearch className="cursor-pointer" onClick={handleSearch} />
-      </li>
-      <li>
-        <form onSubmit={handleSubmitSearch}>
-          <input
-            type="search"
-            name="search"
-            placeholder="Search..."
-            className={`bg-white absolute flex flex-col items-start p-2 gap-3 duration-500 border border-sky-500 outline-sky-500 ${
-              isSearchOpen
-                ? "md:top-[3.72rem] top-[8.5rem] md:right-72 right-24"
-                : "md:-top-64 md:right-72 -top-48 right-24"
-            }`}
-          />
-        </form>
       </li>
     </>
   );
@@ -138,7 +104,9 @@ const Navbar = () => {
             <nav className="z-40 text-white -ml-20">
               <ul
                 className={`bg-[#131D4E] absolute flex flex-col items-start pl-3 pr-8 pb-5 gap-3 duration-500 z-40 ${
-                  isSubOpen ? "top-12 md:top-[3.25rem]" : "-top-64"
+                  isSubOpen
+                    ? "top-[3.718rem] md:top-[3.72rem] right-10"
+                    : "-top-64 right-10"
                 }`}
               >
                 <li>

@@ -1,7 +1,11 @@
+import OurClasses from "../components/HomeComponents/OurClasses";
+import TopSection from "../components/HomeComponents/TopSection";
+
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <TopSection></TopSection>
+      <OurClasses></OurClasses>
     </div>
   );
 };
