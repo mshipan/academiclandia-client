@@ -5,30 +5,37 @@ import Admission from "../Pages/Admission";
 import MyCollege from "../Pages/MyCollege";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import MainLayout from "../Layouts/MainLayout";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
-  },
-  {
-    path: "/colleges",
-    element: <Colleges></Colleges>,
-  },
-  {
-    path: "/admission",
-    element: <Admission></Admission>,
-  },
-  {
-    path: "/my-college",
-    element: <MyCollege></MyCollege>,
-  },
-  {
-    path: "/login",
-    element: <Login></Login>,
-  },
-  {
-    path: "/register",
-    element: <Register></Register>,
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/colleges",
+        element: <Colleges></Colleges>,
+      },
+      {
+        path: "/admission",
+        element: <Admission></Admission>,
+      },
+      {
+        path: "/my-college",
+        element: <MyCollege></MyCollege>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+    ],
   },
 ]);
 
