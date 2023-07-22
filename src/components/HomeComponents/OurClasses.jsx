@@ -24,7 +24,7 @@ const OurClasses = () => {
         <div>
           {loading ? (
             <div className="flex items-center justify-center">
-              <InfinitySpin width="200" color="#4fa94d" />
+              <InfinitySpin width="200" color="#131D4E" />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-5">
