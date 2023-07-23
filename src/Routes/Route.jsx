@@ -8,6 +8,8 @@ import Register from "../Pages/Register";
 import MainLayout from "../Layouts/MainLayout";
 import SearchResult from "../components/SearchResult";
 import CollegeDetails from "../Pages/CollegeDetails";
+import AdmissionBooking from "../Pages/AdmissionBooking";
+import MyCollegeDetails from "../Pages/MyCollegeDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,8 +34,20 @@ const router = createBrowserRouter([
         element: <Admission></Admission>,
       },
       {
+        path: "/admission-booking/:id",
+        element: <AdmissionBooking></AdmissionBooking>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/college/${params.id}`),
+      },
+      {
         path: "/my-college",
         element: <MyCollege></MyCollege>,
+      },
+      {
+        path: "/my-college-details/:id",
+        element: <MyCollegeDetails></MyCollegeDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/booking/${params.id}`),
       },
       {
         path: "/login",

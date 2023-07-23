@@ -27,7 +27,7 @@ const Admission = () => {
           <div className="flex flex-col gap-10 md:w-2/3 mx-auto p-2 md:p-0 ">
             {colleges.map((college) => (
               <div key={college._id}>
-                <Link to="#">
+                <Link to={`/admission-booking/${college._id}`}>
                   <p className="flex justify-between border-t last:border-b border-[#131D4E] py-3">
                     <span className="font-semibold">
                       {college.college_name}
