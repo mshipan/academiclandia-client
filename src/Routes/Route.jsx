@@ -10,10 +10,15 @@ import SearchResult from "../components/SearchResult";
 import CollegeDetails from "../Pages/CollegeDetails";
 import AdmissionBooking from "../Pages/AdmissionBooking";
 import MyCollegeDetails from "../Pages/MyCollegeDetails";
+import Profile from "../Pages/Profile";
+import UpdateProfile from "../Pages/UpdateProfile";
+import ErrorPage from "../Pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -21,7 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/colleges",
-        element: <Colleges></Colleges>,
+        element: (
+          <PrivateRoute>
+            <Colleges></Colleges>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/college-details/:id",
@@ -31,7 +40,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/admission",
-        element: <Admission></Admission>,
+        element: (
+          <PrivateRoute>
+            <Admission></Admission>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/admission-booking/:id",
@@ -41,7 +54,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-college",
-        element: <MyCollege></MyCollege>,
+        element: (
+          <PrivateRoute>
+            <MyCollege></MyCollege>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-college-details/:id",
@@ -60,6 +77,16 @@ const router = createBrowserRouter([
       {
         path: "/search-result",
         element: <SearchResult></SearchResult>,
+      },
+      {
+        path: "/my-profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "update-profile",
+        element: <UpdateProfile></UpdateProfile>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/user/${params.email}`),
       },
     ],
   },

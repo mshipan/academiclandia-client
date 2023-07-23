@@ -2,12 +2,11 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import { FaXmark } from "react-icons/fa6";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubOpen, setIsSubOpen] = useState(false);
-
-  const user = true;
 
   const navItems = (
     <>
@@ -54,11 +53,19 @@ const Navbar = () => {
     </>
   );
 
+  const { user, logOut } = useAuth();
+
   const handleToggle = () => {
     setIsOpen((prevState) => {
       setIsSubOpen(false);
       return !prevState;
     });
+  };
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -98,7 +105,7 @@ const Navbar = () => {
           <div className="md:mr-5">
             <div onClick={() => setIsSubOpen(!isSubOpen)}>
               <h1 className="text-white text-xs cursor-pointer">
-                Welcome, My Name
+                Welcome, {user.displayName}
               </h1>
             </div>
             <nav className="z-40 text-white -ml-20">
@@ -111,7 +118,7 @@ const Navbar = () => {
               >
                 <li>
                   <NavLink
-                    to="/profile"
+                    to="/my-profile"
                     className={({ isActive }) =>
                       isActive ? " text-[#ff4838] navClass" : "navClass"
                     }
@@ -121,7 +128,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <button
-                    // onClick={handleLogOut}
+                    onClick={handleLogOut}
                     className="font-barlow font-semibold hover:text-[#ff4838] duration-300"
                   >
                     Logout
