@@ -36,7 +36,9 @@ const router = createBrowserRouter([
         path: "/college-details/:id",
         element: <CollegeDetails></CollegeDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/college/${params.id}`),
+          fetch(
+            `https://academiclandia-server.vercel.app/college/${params.id}`
+          ),
       },
       {
         path: "/admission",
@@ -50,7 +52,9 @@ const router = createBrowserRouter([
         path: "/admission-booking/:id",
         element: <AdmissionBooking></AdmissionBooking>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/college/${params.id}`),
+          fetch(
+            `https://academiclandia-server.vercel.app/college/${params.id}`
+          ),
       },
       {
         path: "/my-college",
@@ -64,7 +68,9 @@ const router = createBrowserRouter([
         path: "/my-college-details/:id",
         element: <MyCollegeDetails></MyCollegeDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/booking/${params.id}`),
+          fetch(
+            `https://academiclandia-server.vercel.app/booking/${params.id}`
+          ),
       },
       {
         path: "/login",
@@ -86,7 +92,9 @@ const router = createBrowserRouter([
         path: "update-profile",
         element: <UpdateProfile></UpdateProfile>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/user/${params.email}`),
+          fetch(
+            `https://academiclandia-server.vercel.app/user/${params.email}`
+          ),
       },
     ],
   },

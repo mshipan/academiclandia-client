@@ -4,7 +4,9 @@ const useReview = () => {
   const { data: reviews = [], isLoading: loading } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/reviews");
+      const res = await fetch(
+        "https://academiclandia-server.vercel.app/reviews"
+      );
       return res.json();
     },
   });

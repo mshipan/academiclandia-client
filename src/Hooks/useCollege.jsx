@@ -3,7 +3,9 @@ const useCollege = () => {
   const { data: colleges = [], isLoading: loading } = useQuery({
     queryKey: ["colleges"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/colleges");
+      const res = await fetch(
+        "https://academiclandia-server.vercel.app/colleges"
+      );
       return res.json();
     },
   });

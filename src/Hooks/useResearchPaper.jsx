@@ -4,7 +4,9 @@ const useResearchPaper = () => {
   const { data: researchPapers = [], isLoading: loading } = useQuery({
     queryKey: ["researchPapers"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/research-papers");
+      const res = await fetch(
+        "https://academiclandia-server.vercel.app/research-papers"
+      );
       return res.json();
     },
   });

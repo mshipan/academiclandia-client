@@ -4,7 +4,9 @@ const useBooking = () => {
   const { data: bookings = [], isLoading: loading } = useQuery({
     queryKey: ["bookings"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/bookings");
+      const res = await fetch(
+        "https://academiclandia-server.vercel.app/bookings"
+      );
       return res.json();
     },
   });
