@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const OurClassCard = ({ college }) => {
   const {
+    _id,
     college_image,
     college_name,
     admission_date,
@@ -47,7 +48,7 @@ const OurClassCard = ({ college }) => {
         </div>
       </div>
       <div className="flex items-center justify-center pb-4">
-        <Link to="#">
+        <Link to={`/college-details/${_id}`}>
           <button className="py-2 px-5 bg-[#131D4E] text-white">Details</button>
         </Link>
       </div>

@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import MainLayout from "../Layouts/MainLayout";
 import SearchResult from "../components/SearchResult";
+import CollegeDetails from "../Pages/CollegeDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +20,12 @@ const router = createBrowserRouter([
       {
         path: "/colleges",
         element: <Colleges></Colleges>,
+      },
+      {
+        path: "/college-details/:id",
+        element: <CollegeDetails></CollegeDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/college/${params.id}`),
       },
       {
         path: "/admission",
