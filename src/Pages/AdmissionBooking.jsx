@@ -2,7 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../Hooks/useAuth";
 const AdmissionBooking = () => {
+  const { user } = useAuth();
   const college = useLoaderData();
   const {
     college_name,
@@ -16,12 +18,11 @@ const AdmissionBooking = () => {
   } = college;
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     fetch("https://academiclandia-server.vercel.app/bookings", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
-        // uid: user.uid,
+        uid: user.uid,
         collegeName: college_name,
         collegeImage: college_image,
         admissionDate: admission_date,

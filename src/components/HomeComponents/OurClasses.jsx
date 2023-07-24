@@ -28,7 +28,7 @@ const OurClasses = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-5">
-              {colleges.map((college) => (
+              {colleges.slice(0, 3).map((college) => (
                 <OurClassCard
                   key={college._id}
                   college={college}

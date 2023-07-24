@@ -16,7 +16,7 @@ const OurClassCard = ({ college }) => {
         <img
           src={college_image}
           alt="Card Image"
-          className="transition duration-300 ease-in-out hover:scale-110"
+          className="transition duration-300 ease-in-out hover:scale-110 h-80 w-full"
         />
         <div className="absolute bottom-0 right-0">
           <h1 className="font-semibold text-white">Admission</h1>

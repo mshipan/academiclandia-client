@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF } from "react-icons/fa";
+// import { FaFacebookF } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -47,9 +47,9 @@ const SocialLogin = () => {
       >
         <FcGoogle className="text-2xl" /> Google
       </button>
-      <button className="flex items-center gap-1 text-lg bg-sky-600 text-white px-5 py-1">
+      {/* <button className="flex items-center gap-1 text-lg bg-sky-600 text-white px-5 py-1">
         <FaFacebookF className="text-2xl" /> Facebook
-      </button>
+      </button> */}
     </div>
   );
 };
