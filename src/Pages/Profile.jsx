@@ -21,7 +21,7 @@ const Profile = () => {
   const isProfileIncomplete =
     !phone || !gender || !dob || !country || !address || !university;
   return (
-    <div className="md:h-screen">
+    <div className="h-full">
       <Helmet>
         <title>Profile | Travlerz</title>
       </Helmet>
@@ -30,7 +30,7 @@ const Profile = () => {
           My Profile
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-center gap-20 w-full my-20">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-20 w-full md:h-screen my-20">
         <div>
           <img src={photo} alt="User Photo" className="w-56" />
         </div>

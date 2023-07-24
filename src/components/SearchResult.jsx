@@ -12,7 +12,7 @@ const SearchResult = () => {
     return college.college_name.toLowerCase().includes(query.toLowerCase());
   });
   return (
-    <div className="md:h-screen">
+    <div className="h-full">
       <Helmet>
         <title>Search Results | Academiclandia</title>
       </Helmet>
@@ -32,7 +32,9 @@ const SearchResult = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-5 p-2 md:p-0">
               {filteredColleges.length === 0 ? (
-                <p>No results found for your search.</p>
+                <p className="text-red-500 h-screen">
+                  No results found for your search.
+                </p>
               ) : (
                 filteredColleges.map((college) => (
                   <OurClassCard key={college._id} college={college} />

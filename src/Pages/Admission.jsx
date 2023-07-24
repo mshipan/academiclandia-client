@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Admission = () => {
   const [colleges, loading] = useCollege();
   return (
-    <div className="md:h-screen">
+    <div>
       <Helmet>
         <title>Admission | Academiclandia</title>
       </Helmet>
@@ -28,7 +28,7 @@ const Admission = () => {
             {colleges.map((college) => (
               <div key={college._id}>
                 <Link to={`/admission-booking/${college._id}`}>
-                  <p className="flex justify-between border-t last:border-b border-[#131D4E] py-3">
+                  <p className="flex flex-col md:flex-row items-center justify-between gap-3 border-t last:border-b border-[#131D4E] py-3">
                     <span className="font-semibold">
                       {college.college_name}
                     </span>

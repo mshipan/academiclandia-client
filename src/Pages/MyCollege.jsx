@@ -8,7 +8,7 @@ const MyCollege = () => {
   const { user } = useAuth();
   const [bookings, loading] = useBooking(user?.uid);
   return (
-    <div className="md:h-screen">
+    <div className="h-full">
       <Helmet>
         <title>My College | Academiclandia</title>
       </Helmet>
@@ -26,9 +26,9 @@ const MyCollege = () => {
             <InfinitySpin width="200" color="#131D4E" />
           </div>
         ) : (
-          <div className="flex flex-col gap-10 md:w-2/3 mx-auto p-2 md:p-0 ">
+          <div className="flex flex-col gap-10 md:w-2/3 mx-auto p-2 md:p-0 h-screen">
             {bookings.length === 0 ? (
-              <p className="text-center text-red-500">
+              <p className="text-center text-red-500 h-screen">
                 No data available. Data will show after book a admission
               </p>
             ) : (
